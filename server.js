@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const Email = require("./models/Email");
+const user = require("./models/Login")
 const app = express();
 const dotenv = require("dotenv");
 
@@ -21,7 +22,11 @@ app.get("/index.html", (req, res)=>{
 
 app.post("/data", (req, res)=>{
     console.log(req.body)
-    let {name, pass} = req.body;
+    let {username, password} = req.body;
+    user.create({
+        user: username,
+        password: password
+    })
     res.status(200).json({
         message: "Success!"
     })
