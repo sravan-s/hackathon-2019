@@ -9,10 +9,12 @@ dotenv.config({path: "./config/config.env"});
 const db = require("./db");
 
 db();
+
+app.use(express.static('views'))
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
-app.get("/", (req, res)=>{
+app.get("/index.html", (req, res)=>{
     res.send("Sending data")
 })
 
