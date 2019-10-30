@@ -79,7 +79,9 @@
         });
         const content = await rawResponse.json();
 
-        console.log(content);
+        if (content.message === "Success!") {
+          alert("Submitted successfully")
+        }
       })();
 
     }
