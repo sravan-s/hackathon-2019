@@ -7,7 +7,11 @@ const dotenv = require("dotenv");
 dotenv.config({path: "./config/config.env"});
 
 const db = require("./db");
+
 db();
+app.use(express.json())
+app.use(express.urlencoded({extended: true}))
+
 app.get("/", (req, res)=>{
     res.send("Sending data")
 })
