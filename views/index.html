@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Submit your email</title>
+  <style>
+    .wrapper {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+    }
+
+    .section {
+      width: 50%;
+    }
+
+    .backdrop-img {
+      width: 100%;
+    }
+
+    .form {
+      display: flex;
+      align-content: center;
+      justify-content: center;
+    }
+
+    .form form {
+      padding-top: 40%;
+      height: 200px;
+    }
+
+    @media (max-width: 768px) {
+      .wrapper {
+        display: block;
+        position: relative;
+      }
+
+      .section {
+        width: 100%;
+      }
+
+      .backdrop {
+        padding-top: 200px;
+      }
+
+      .form {
+        position: absolute;
+        top: 20px;
+      }
+
+      .form form {
+        padding-top: 50px;
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="backdrop section">
+      <img class="backdrop-img" src="../static/pineapple_edit.jpg" alt="backdrop image">
+    </div>
+    <div class="form section">
+      <form action="/data">
+        <div>
+          <input type="email" name="email" required>
+        </div>
+        <div>
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>
