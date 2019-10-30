@@ -12,7 +12,7 @@ db();
 
 app.use(express.static('views'))
 app.use(express.json())
-app.use(express.urlencoded({extended: true}))
+app.use(express.urlencoded({extended: false}))
 
 app.get("/index.html", (req, res)=>{
     res.send("Sending data")
