@@ -60,17 +60,52 @@
 </head>
 
 <body>
+  <script>
+    window.onsubmit = (e) => {
+      e.preventDefault();
+      (async () => {
+        var username = document.getElementsByName("username")[0].value;
+        var password = document.getElementsByName("password")[0].value;
+        const rawResponse = await fetch('/data', {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            username: username,
+            password: password,
+          })
+        });
+        const content = await rawResponse.json();
+
+        console.log(content);
+      })();
+
+    }
+  </script>
   <div class="wrapper">
     <div class="backdrop section">
-      <img class="backdrop-img" src="../static/pineapple_edit.jpg" alt="backdrop image">
+      <img class="backdrop-img" src="/static/pineapple_edit.jpg" alt="backdrop image">
     </div>
     <div class="form section">
-      <form action="/data">
+      <form onsubmit="onsubmit()">
         <div>
-          <input type="email" name="email" required>
+          <div>
+            <label for="name">Name</label>
+            <input type="text" name="username" required>
+          </div>
+          <div>
+            <label for="password">Password</label>
+            <input type="password" name="password" required>
+          </div>
+          <div>
+            <label for="confirm-password">Confirm password</label>
+            <input type="password" name="confirm-password" required>
+          </div>
         </div>
         <div>
-          <button type="submit">Submit</button>
+          <button type="buttom">Submit</button>
         </div>
       </form>
     </div>
