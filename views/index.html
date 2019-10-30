@@ -66,6 +66,13 @@
       (async () => {
         var username = document.getElementsByName("username")[0].value;
         var password = document.getElementsByName("password")[0].value;
+
+        var confirmPAss = document.getElementsByName("confirm-password")[0].value;
+
+        if (password !== confirmPAss) {
+          alert("Passwords should match")
+          return false
+        }
         const rawResponse = await fetch('/data', {
           method: 'POST',
           headers: {
